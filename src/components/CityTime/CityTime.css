@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'clock';
+    src: url(../../Assets/font/DS-DIGI.TTF);
+  }
+  
+
+.city-time-container{
+   color:rgb(228, 188, 26);
+   font-size: 60px;
+   font-family: 'clock' ,sans-serif;
+}

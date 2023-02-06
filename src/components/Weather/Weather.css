@@ -1,0 +1,20 @@
+.container-meteo{  
+    display: flex;    
+}
+.container-meteo img{
+   width: 100px;
+
+    
+}
+.temperature{
+    color:  rgb(228, 187, 26);
+    width: 110px;
+    height: 110px;
+    font-size: 30px;
+    border: 1px solid  rgb(228, 187, 26) ;
+    padding: 5px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
