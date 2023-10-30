@@ -25,22 +25,14 @@ export default function World() {
   const [toogleAnimDownBar, setAnimDownBar] = useState(true);
   const [toogleAnimClass, setToogleAnimClass] = useState(false);
   const [largeur, setlargeur] = useState(window.innerWidth);
-  const [globeStyle, setGlobeStyle] = useState(
-    "//unpkg.com/three-globe/example/img/earth-night.jpg"
-  );
+  const [globeStyle, setGlobeStyle] = useState("//unpkg.com/three-globe/example/img/earth-night.jpg");
 
   const [modalInfo, setModalInfo] = useState([{ lng: "", lat: "", popu: "" }]);
   const globeEl = useRef();
-  const animationBounceStats = toogleAnimClass
-    ? "bounceInLeft"
-    : "bounceOutLeft";
-  const animationBounceDescription = toogleAnimClass
-    ? "bounceInRight"
-    : "bounceOutRight";
-  const animationBounceDownBar = toogleAnimDownBar
-    ? "bounceInUp"
-    : "bounceOutDown";
- 
+  const animationBounceStats = toogleAnimClass ? "bounceInLeft" : "bounceOutLeft";
+  const animationBounceDescription = toogleAnimClass ? "bounceInRight" : "bounceOutRight";
+  const animationBounceDownBar = toogleAnimDownBar ? "bounceInUp" : "bounceOutDown";
+
   useEffect(() => {
     //   // Auto-rotate
     globeEl.current.controls().autoRotate = true;
@@ -49,7 +41,6 @@ export default function World() {
     globeEl.current.pointOfView({ altitude: 3.5 }, 5000);
   }, []);
   const handleClickOnGlobe = (d) => {
-    console.log(d.popu);
     setModalInfo([
       {
         lat: d.lat,
@@ -66,23 +57,23 @@ export default function World() {
     setToogleAnimClass(!toogleAnimClass);
     setToogleInfo(!toogleInfo);
   };
-  console.log(modalInfo);
-  const showToolsDownBar = (e) => {
-    const heightScreen = window.innerHeight;
-    const h = heightScreen - 80;
 
-    // if(e.clientY >= h){
-    //   setDownBar(true)
-    //    console.log(toogleDownBar)
-    // }
-    if (e.clientY !== undefined) {
-      console.log("1");
-      setDownBar(true);
-    }
-    if (e.clientY < h + 20) {
-      setDownBar(false);
-    }
-  };
+  // const showToolsDownBar = (e) => {
+  //   const heightScreen = window.innerHeight;
+  //   const h = heightScreen - 80;
+
+  //   // if(e.clientY >= h){
+  //   //   setDownBar(true)
+  //   //    console.log(toogleDownBar)
+  //   // }
+  //   if (e.clientY !== undefined) {
+  //     console.log("1");
+  //     setDownBar(true);
+  //   }
+  //   if (e.clientY < h + 20) {
+  //     setDownBar(false);
+  //   }
+  // };
 
   return (
     <div className="home-container">
@@ -99,13 +90,7 @@ export default function World() {
         }}
       >
         {toogleInfo && (
-          <p
-            onClick={() =>
-              setToogleAnimClass(false) +
-              setTimeout(() => setToogleInfo(false), 800)
-            }
-            className="close-modal-info glass-button"
-          >
+          <p onClick={() => setToogleAnimClass(false) + setTimeout(() => setToogleInfo(false), 800)} className="close-modal-info glass-button">
             Close
           </p>
         )}
@@ -185,9 +170,7 @@ export default function World() {
               }}
             />
           )}
-          {toogleInfo && largeur > 600 && (
-            <Weather state={{ city: modalInfo[0].city }} />
-          )}
+          {toogleInfo && largeur > 600 && <Weather state={{ city: modalInfo[0].city }} />}
         </div>
 
         {toogleInfo && largeur > 600 && (
@@ -240,46 +223,21 @@ export default function World() {
         </div>
       )}
       {/* bar noir du bas de la page*/}
-      <div className="black-down-bar" onMouseMove={showToolsDownBar}>
-        {toogleDownBar && (
-          <div
-            className={`btn-color-globe ${animationBounceDownBar}`}
-            onClick={() =>
-              setGlobeStyle(
-                "//unpkg.com/three-globe/example/img/earth-night.jpg"
-              )
-            }
-          >
-            <img className="svg" src={globeLogo} />
-            <p>Night</p>
-          </div>
-        )}
-        {toogleDownBar && (
-          <div
-            className={`btn-color-globe ${animationBounceDownBar}`}
-            onClick={() =>
-              setGlobeStyle(
-                "//unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
-              )
-            }
-          >
-            <img src={globeLogo} />
-            <p>Day</p>
-          </div>
-        )}
-        {toogleDownBar && (
-          <div
-            className={`btn-color-globe ${animationBounceDownBar}`}
-            onClick={() =>
-              setGlobeStyle(
-                "//unpkg.com/three-globe/example/img/earth-dark.jpg"
-              )
-            }
-          >
-            <img src={globeLogo} />
-            <p>Dark</p>
-          </div>
-        )}
+      <div className="black-down-bar">
+        <div className={`btn-color-globe ${animationBounceDownBar}`} onClick={() => setGlobeStyle("//unpkg.com/three-globe/example/img/earth-night.jpg")}>
+          <img className="svg" src={globeLogo} />
+          <p>Night</p>
+        </div>
+
+        <div className={`btn-color-globe ${animationBounceDownBar}`} onClick={() => setGlobeStyle("//unpkg.com/three-globe/example/img/earth-blue-marble.jpg")}>
+          <img src={globeLogo} />
+          <p>Day</p>
+        </div>
+
+        <div className={`btn-color-globe ${animationBounceDownBar}`} onClick={() => setGlobeStyle("//unpkg.com/three-globe/example/img/earth-dark.jpg")}>
+          <img src={globeLogo} />
+          <p>Dark</p>
+        </div>
       </div>
     </div>
   );
