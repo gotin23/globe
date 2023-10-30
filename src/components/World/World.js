@@ -192,7 +192,7 @@ export default function World() {
       </div>
       {/* afichage des infos portable */}
       {toogleInfo && largeur < 600 && (
-        <div className="container-small-sreen">
+        <div className="container-small-screen">
           <div className={`container-time-meteo ${animationBounceDescription}`}>
             <CityTime
               state={{
@@ -203,13 +203,19 @@ export default function World() {
             />
             <Weather state={{ city: modalInfo[0].city }} />
           </div>
+          <Galery
+            state={{
+              animBounce: animationBounceDescription,
+              pics: modalInfo[0].pics,
+            }}
+          />
           <DescriptionCity
             state={{
               description: modalInfo[0].description,
               animBounce: animationBounceDescription,
             }}
           />
-          <Galery state={{ animBounce: animationBounceDescription }} />
+          {/* <Galery state={{ animBounce: animationBounceDescription }} /> */}
           <CityStats
             state={{
               animBounce: animationBounceStats,
@@ -217,9 +223,9 @@ export default function World() {
               popu: modalInfo[0].popu,
             }}
           />
-          <Stats2 state={{ animBounce: animationBounceStats }} />
-          <Stats3 state={{ animBounce: animationBounceStats }} />
-          <Stats4 state={{ animBounce: animationBounceStats }} />
+          <Stats2 state={{ animBounce: animationBounceStats, percentageOfPoor: modalInfo[0].percentageOfPoor }} />
+          <Stats3 state={{ animBounce: animationBounceStats, ageOfPop: modalInfo[0].ageOfPop }} />
+          <Stats4 state={{ animBounce: animationBounceStats, evolutionPop: modalInfo[0].evolutionPop }} />
         </div>
       )}
       {/* bar noir du bas de la page*/}

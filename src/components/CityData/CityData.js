@@ -2,13 +2,22 @@ import paris from "../../Assets/paris.jpg";
 import tower from "../../Assets/eiffel-tower.jpg";
 import beach from "../../Assets/beach.jpeg";
 import slumBombay from "../../Assets/slumBombay.webp";
+import Barcelonna from "../../Assets/Barcelona.jpg";
+import Dorian from "../../Assets/dorian.jpg";
 
 const dataCity = [
   {
     city: "Barcelona",
     lat: 41.385064,
     lng: 2.173404,
+    popu: 1.62,
+    evolutionPop: [0.5, 0.6, 0.5, 0.7, 0.6, 0.8, 1, 1.1, 1.3, 1.4, 1.6],
+    ageOfPop: [13.6, 45.7, 18.5, 22.2],
+    percentageOfPoor: 20.2,
+    pics: [Barcelonna, Dorian],
     size: 15,
+    description: `Barcelonians, the lively residents of Barcelona, exude a vibrant spirit that reflects the city's rich cultural tapestry. Their diverse backgrounds and strong connection to Catalan traditions create a dynamic community. They ardently celebrate local festivals, cherish their culinary delights, and proudly support their iconic football club, FC Barcelona.
+    Embracing a balance between their energetic urban lifestyle and moments of relaxed enjoyment, Barcelonians infuse the city with a blend of cultural vibrancy and a welcoming atmosphere. From the bustling markets to the animated gatherings in plazas, their warmth and sociable nature define the lively essence of this captivating metropolis.`,
   },
 
   {
